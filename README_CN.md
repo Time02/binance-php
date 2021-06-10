@@ -11,7 +11,6 @@ USDT合约交易文档地址 [https://binance-docs.github.io/apidocs/futures/cn]
 
 [English Document](https://github.com/zhouaini528/binance-php/blob/master/README.md)
 
-QQ交流群：668421169
 
 ### 其他交易所API
 
@@ -57,7 +56,7 @@ QQ交流群：668421169
 
 #### 安装方式
 ```
-composer require linwj/binance
+composer require time0x/binance
 ```
 
 本地开发支持代理 [More](https://github.com/zhouaini528/binance-php/blob/master/tests/proxy.php#L21)

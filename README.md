@@ -56,7 +56,7 @@ Most of the interface is now complete, and the user can continue to extend it ba
 
 #### Installation
 ```
-composer require linwj/binance
+composer require time0x/binance
 ```
 
 Support for more request Settings [More](https://github.com/zhouaini528/binance-php/blob/master/tests/spot/proxy.php#L21)
