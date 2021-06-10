@@ -78,7 +78,7 @@ $binance->setOptions([
 
 ### Spot Trading API
 
-System related API [More](https://github.com/zhouaini528/binance-php/blob/master/tests/spot/system.php)
+Market related API [More](https://github.com/zhouaini528/binance-php/blob/master/tests/spot/market.php)
 
 ```php
 use Lin\Binance\Binance;
@@ -86,7 +86,7 @@ $binance=new Binance();
 
 //Order book
 try {
-    $result=$binance->system()->getDepth([
+    $result=$binance->market()->getDepth([
         'symbol'=>'BTCUSDT',
         'limit'=>'20',
     ]);
@@ -97,7 +97,7 @@ try {
 
 //Recent trades list
 try {
-    $result=$binance->system()->getTrades([
+    $result=$binance->market()->getTrades([
         'symbol'=>'BTCUSDT',
         'limit'=>'20',
     ]);
@@ -108,7 +108,7 @@ try {
 
 //Current average price
 try {
-    $result=$binance->system()->getAvgPrice([
+    $result=$binance->market()->getAvgPrice([
         'symbol'=>'BTCUSDT'
     ]);
     print_r($result);
@@ -277,7 +277,7 @@ try {
 
 ### Futures Trading API
 
-Market related API [More](https://github.com/zhouaini528/binance-php/blob/master/tests/future/system.php)
+Market related API [More](https://github.com/zhouaini528/binance-php/blob/master/tests/future/market.php)
 
 ```php
 use Lin\Binance\BinanceFuture;

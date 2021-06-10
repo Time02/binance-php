@@ -7,7 +7,7 @@ namespace Lin\Binance;
 
 
 use Lin\Binance\Api\Spot\User;
-use Lin\Binance\Api\Spot\System;
+use Lin\Binance\Api\Spot\Market;
 use Lin\Binance\Api\Spot\Trade;
 
 class Binance
@@ -54,8 +54,8 @@ class Binance
     /**
      *
      * */
-    public function system(){
-        return new System($this->init());
+    public function market(){
+        return new Market($this->init());
     }
 
     /**

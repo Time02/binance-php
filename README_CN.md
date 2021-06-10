@@ -80,7 +80,7 @@ $binance->setOptions([
 
 ### 币币交易 API
 
-系统数据相关 API [More](https://github.com/zhouaini528/binance-php/blob/master/tests/spot/system.php)
+系统数据相关 API [More](https://github.com/zhouaini528/binance-php/blob/master/tests/spot/market.php)
 
 
 ```php
@@ -89,7 +89,7 @@ $binance=new Binance();
 
 //Order book
 try {
-    $result=$binance->system()->getDepth([
+    $result=$binance->market()->getDepth([
         'symbol'=>'BTCUSDT',
         'limit'=>'20',
     ]);
@@ -100,7 +100,7 @@ try {
 
 //Recent trades list
 try {
-    $result=$binance->system()->getTrades([
+    $result=$binance->market()->getTrades([
         'symbol'=>'BTCUSDT',
         'limit'=>'20',
     ]);
@@ -111,7 +111,7 @@ try {
 
 //Current average price
 try {
-    $result=$binance->system()->getAvgPrice([
+    $result=$binance->market()->getAvgPrice([
         'symbol'=>'BTCUSDT'
     ]);
     print_r($result);

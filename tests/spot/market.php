@@ -35,7 +35,7 @@ $binance->setOptions([
 
 //Order book
 try {
-    $result=$binance->system()->getDepth([
+    $result=$binance->market()->getDepth([
         'symbol'=>'BTCUSDT',
         'limit'=>'20',
     ]);
@@ -46,7 +46,7 @@ try {
 
 //Recent trades list
 try {
-    $result=$binance->system()->getTrades([
+    $result=$binance->market()->getTrades([
         'symbol'=>'BTCUSDT',
         'limit'=>'20',
     ]);
@@ -57,7 +57,7 @@ try {
 
 //Current average price
 try {
-    $result=$binance->system()->getAvgPrice([
+    $result=$binance->market()->getAvgPrice([
         'symbol'=>'BTCUSDT'
     ]);
     print_r($result);

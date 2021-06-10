@@ -173,6 +173,23 @@ class Market extends Request
     }
 
     /**
+     * 请求最优挂单接口参数
+     * @param array $data
+     * @param string|null $functionName
+     * @return array
+     */
+    public function getTickerBookTickerRequestParams(array $data=[],string $functionName=null){
+        if (null === $functionName) {
+            return false;
+        } else {
+            $this->type='GET';
+            $this->path='/fapi/v1/ticker/bookTicker';
+            $this->data=$data;
+            return $this->getRequestParam($functionName);
+        }
+    }
+
+    /**
      *GET /fapi/v1/allForceOrders
      * */
     public function get(array $data=[]){

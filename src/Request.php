@@ -6,6 +6,8 @@
 namespace Lin\Binance;
 
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Client;
+use GuzzleHttp\Promise;
 use Lin\Binance\Exceptions\Exception;
 
 class Request
@@ -98,7 +100,7 @@ class Request
      *
      * */
     protected function send(){
-        $client = new \GuzzleHttp\Client();
+        $client = new Client();
 
         $query = $this->signature === true ? '' : '?'.$this->signature;
 
@@ -109,6 +111,49 @@ class Request
         return $response->getBody()->getContents();
     }
 
+    /**
+     *
+     * @param string $functionName
+     * @return array
+     */
+    protected function getRequestParam(string $functionName){
+        $this->auth();
+
+        $query = $this->signature === true ? '' : '?'.$this->signature;
+
+        $requestParam = [
+            'type'=>$this->type,
+            'host'=>$this->host,
+            'path'=>$this->path,
+            'query'=>$query,
+            'option'=>$this->options,
+            'functionName' => $functionName,
+        ];
+
+        $this->signature='';
+
+        return $requestParam;
+    }
+
+    protected function execAsync(array $requestParams=[]){
+
+        $client = new Client();
+
+        $promises = [];
+        $responses = [];
+        foreach ($requestParams as $v) {
+            $promises[$v['functionName']] = $client->requestAsync($v['type'], $v['host'].$v['path'].$v['query'],$v['option']);
+        }
+
+        // Wait for the requests to complete; throws a ConnectException
+        // if any of the requests fail
+        try {
+            $responses = Promise\Utils::unwrap($promises);
+        } catch (RequestException $e) {
+            echo "execAsync error";
+        }
+        return $responses;
+    }
     /*
      *
      * */

@@ -7,7 +7,7 @@ namespace Lin\Binance\Api\Spot;
 
 use Lin\Binance\Request;
 
-class System extends Request
+class Market extends Request
 {
     //Default Dont required HMAC SHA256
     protected $signature=false;
@@ -167,5 +167,19 @@ class System extends Request
         $this->path='/api/v3/ticker/bookTicker';
         $this->data=$data;
         return $this->exec();
+    }
+
+    /**
+     * 请求最优挂单接口参数
+     * */
+    public function getTickerBookTickerRequestParams(array $data=[],string $functionName=null){
+        if (null === $functionName) {
+            return false;
+        } else {
+            $this->type='GET';
+            $this->path='/api/v3/ticker/bookTicker';
+            $this->data=$data;
+            return $this->getRequestParam($functionName);
+        }
     }
 }
