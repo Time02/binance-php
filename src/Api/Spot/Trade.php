@@ -60,6 +60,31 @@ class Trade extends Request
         return $this->exec();
     }
 
+    public function getPostOrderRequestParams(array $data=[],string $functionName=null){
+
+        if (null === $functionName) {
+            return false;
+        } else {
+            $this->type='POST';
+            $this->path='/api/v3/order';
+
+            $data['timestamp']=time().'000';
+            $data['newOrderRespType']=$data['newOrderRespType'] ?? 'ACK';
+
+            switch (strtoupper($data['type'])){
+                case 'LIMIT':{
+                    $data['timeInForce']=$data['timeInForce'] ?? 'GTC';
+                    break;
+                }
+            }
+
+            $this->data=$data;
+            return $this->getRequestParam($functionName);
+        }
+
+    }
+
+
     /**
      * 测试下单接口 (TRADE)
     POST /api/v3/order/test (HMAC SHA256)
@@ -94,12 +119,12 @@ class Trade extends Request
     }
 
     /**
-     *撤销订单 (TRADE)
-    DELETE /api/v3/openOrders  (HMAC SHA256)
+     *  撤销单一交易对的所有挂单 (TRADE)
+        DELETE /api/v3/openOrders  (HMAC SHA256)
 
-    symbol	STRING	YES
-    recvWindow	LONG	NO
-    timestamp	LONG	YES
+        symbol	STRING	YES
+        recvWindow	LONG	NO
+        timestamp	LONG	YES
      * */
     public function deleteAllOrders(array $data){
         $this->type='DELETE';

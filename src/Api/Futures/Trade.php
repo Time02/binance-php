@@ -49,6 +49,18 @@ class Trade extends Request
         return $this->exec();
     }
 
+    public function getPostOrderRequestParams(array $data=[],string $functionName=null){
+
+        if (null === $functionName) {
+            return false;
+        } else {
+            $this->type='POST';
+            $this->path='/fapi/v1/order';
+            $this->data=array_merge($this->data,$data);
+            return $this->getRequestParam($functionName);
+        }
+    }
+
     /*
      *POST /fapi/v1/order/test (HMAC SHA256)
      */
@@ -80,7 +92,8 @@ class Trade extends Request
     }
 
     /*
-     *DELETE /fapi/v1/allOpenOrders (HMAC SHA256)
+     * 撤销单一交易对的所有挂单 (TRADE)
+     * DELETE /fapi/v1/allOpenOrders (HMAC SHA256)
      */
     public function deleteAllOpenOrders(array $data=[]){
         $this->type='DELETE';
@@ -110,7 +123,13 @@ class Trade extends Request
     }
 
     /*
-     *POST /fapi/v1/leverage (HMAC SHA256)
+     * 调整开仓杠杆
+     * POST /fapi/v1/leverage (HMAC SHA256)
+     * {
+            "leverage": 21, // 杠杆倍数
+            "maxNotionalValue": "1000000", // 当前杠杆倍数下允许的最大名义价值
+            "symbol": "BTCUSDT" // 交易对
+        }
      */
     public function postLeverage(array $data=[]){
         $this->type='post';
