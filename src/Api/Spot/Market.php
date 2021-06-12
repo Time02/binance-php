@@ -35,8 +35,8 @@ class Market extends Request
     }
 
     /**
-     *交易规范信息
-    GET /api/v1/exchangeInfo
+     * 交易规范信息
+       GET /api/v1/exchangeInfo
      * */
     public function getExchangeInfo(array $data=[]){
         $this->type='GET';

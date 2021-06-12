@@ -12,48 +12,6 @@ Most of the interface is now complete, and the user can continue to extend it ba
 
 [中文文档](https://github.com/Time02/binance-php/blob/master/README_CN.md)
 
-### Other exchanges API
-
-[Exchanges](https://github.com/zhouaini528/exchanges-php) It includes all of the following exchanges and is highly recommended.
-
-[Bitmex](https://github.com/zhouaini528/bitmex-php) Support [Websocket](https://github.com/zhouaini528/bitmex-php/blob/master/README.md#Websocket)
-
-[Okex](https://github.com/zhouaini528/okex-php) Support [Websocket](https://github.com/zhouaini528/okex-php/blob/master/README.md#Websocket)
-
-[Huobi](https://github.com/zhouaini528/huobi-php) Support [Websocket](https://github.com/zhouaini528/huobi-php/blob/master/README.md#Websocket)
-
-[Binance](https://github.com/Time02/binance-php) Support [Websocket](https://github.com/zhouaini528/binance-php/blob/master/README.md#Websocket)
-
-[Kucoin](https://github.com/zhouaini528/kucoin-php)
-
-[Mxc](https://github.com/zhouaini528/Mxc-php)
-
-[Coinbase](https://github.com/zhouaini528/coinbase-php)
-
-[ZB](https://github.com/zhouaini528/zb-php)
-
-[Bitfinex](https://github.com/zhouaini528/bitfinex-php)
-
-[Bittrex](https://github.com/zhouaini528/bittrex-php)
-
-[Kraken](https://github.com/zhouaini528/kraken-php)
-
-[Gate](https://github.com/zhouaini528/gate-php)   
-
-[Bigone](https://github.com/zhouaini528/bigone-php)   
-
-[Crex24](https://github.com/zhouaini528/crex24-php)   
-
-[Bybit](https://github.com/zhouaini528/bybit-php)  
-
-[Coinbene](https://github.com/zhouaini528/coinbene-php)   
-
-[Bitget](https://github.com/zhouaini528/bitget-php)   
-
-[Poloniex](https://github.com/zhouaini528/poloniex-php)
-
-**If you don't find the exchange SDK you want, you can tell me and I'll join them.**
-
 #### Installation
 ```
 composer require time0x/binance
@@ -692,5 +650,5 @@ $binance->getSubscribe([//Return all data of private channel and partial data of
 
 [USDT Future Websocket More Test](https://github.com/Time02/binance-php/tree/master/tests/websocket/client_usdt_future.php)
 
-[Coin Future Websocket More Test](https://github.com/zhouaini528/binance-php/tree/master/tests/websocket/client_coin_future.php)
+[Coin Future Websocket More Test](https://github.com/Time02/binance-php/tree/master/tests/websocket/client_coin_future.php)
 

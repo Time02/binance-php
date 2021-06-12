@@ -321,4 +321,35 @@ class User extends Request
         $this->data=$data;
         return $this->exec();
     }
+
+    /**
+     * 现货交易和杠杆利息BNB抵扣开关
+     * "spotBNBBurn" 和 "interestBNBBurn" 二者必须传至少一个
+     * @param array $data
+     * @return mixed
+     * @throws \Lin\Binance\Exceptions\Exception
+     */
+    public function postBnbBurn(array $data=[]){
+        $this->type='POST';
+        $this->path='/sapi/v1/bnbBurn';
+        $data['timestamp']=time().'000';
+        $this->data=$data;
+        return $this->exec();
+    }
+
+    /**
+     * 获取BNB抵扣开关状态 (USER_DATA)
+     * @param array $data
+     * @return mixed
+     * @throws \Lin\Binance\Exceptions\Exception
+     */
+    public function getBnbBurn(array $data=[]){
+        $this->type='GET';
+        $this->path='/sapi/v1/bnbBurn';
+        $data['timestamp']=time().'000';
+        $this->data=$data;
+        return $this->exec();
+    }
+
+
 }
