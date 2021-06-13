@@ -80,6 +80,7 @@ class User extends Request
     }
 
     /**
+     *
      * GET /fapi/v1/balance (HMAC SHA256) USER_DATA
      * {
             "accountAlias": "SgsR",    // 账户唯一识别码
@@ -93,19 +94,29 @@ class User extends Request
             "updateTime": 1617939110373
         }
      * */
+
+    /**
+     * 账户余额 V2 (USER_DATA) ，v1 返回的参数太少
+     * @param array $data
+     * @return mixed
+     * @throws Exception
+     */
     public function getBalance(array $data=[]){
         $this->type='GET';
-        $this->path='/fapi/v1/balance';
+        $this->path='/fapi/v2/balance';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /**
-     *GET /fapi/v1/account (HMAC SHA256) USER_DATA
-     * */
+     * 账户信息V2 (USER_DATA)，v1 返回信息太少
+     * @param array $data
+     * @return mixed
+     * @throws Exception
+     */
     public function getAccount(array $data=[]){
         $this->type='GET';
-        $this->path='/fapi/v1/account';
+        $this->path='/fapi/v2/account';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
