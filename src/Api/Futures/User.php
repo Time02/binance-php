@@ -142,12 +142,23 @@ class User extends Request
     }
 
     /**
-     *GET /fapi/v1/income (HMAC SHA256) USER_DATA
-     * */
+     * 获取账户损益资金流水(USER_DATA)
+     * 参数：symbol 交易对
+     * incomeType 收益类型 "TRANSFER"，"WELCOME_BONUS", "REALIZED_PNL"，"FUNDING_FEE", "COMMISSION", and "INSURANCE_CLEAR"
+     * startTime
+     * endTime
+     * 如果startTime 和 endTime 均未发送, 只会返回最近7天的数据。
+     * 如果startTime 和 endTime 均未发送, 只会返回最近7天的数据。
+     * 返回的 "trandId" 在相同用户的同一种收益流水类型中是唯一的。
+     * @param array $data
+     * @return mixed
+     * @throws Exception
+     */
     public function getIncome(array $data=[]){
         $this->type='GET';
         $this->path='/fapi/v1/income';
         $this->data=array_merge($this->data,$data);
+        $data['timestamp']=time().'000';
         return $this->exec();
     }
 
