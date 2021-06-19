@@ -18,7 +18,7 @@ class Market extends Request
      * */
     public function getPing(array $data=[]){
         $this->type='GET';
-        $this->path='/api/v1/ping';
+        $this->path='/api/v3/ping';
         $this->data=$data;
         return $this->exec();
     }
@@ -29,7 +29,7 @@ class Market extends Request
      * */
     public function getTime(array $data=[]){
         $this->type='GET';
-        $this->path='/api/v1/time';
+        $this->path='/api/v3/time';
         $this->data=$data;
         return $this->exec();
     }
@@ -40,7 +40,7 @@ class Market extends Request
      * */
     public function getExchangeInfo(array $data=[]){
         $this->type='GET';
-        $this->path='/api/v1/exchangeInfo';
+        $this->path='/api/v3/exchangeInfo';
         $this->data=$data;
         return $this->exec();
     }
@@ -54,7 +54,7 @@ class Market extends Request
      * */
     public function getDepth(array $data=[]){
         $this->type='GET';
-        $this->path='/api/v1/depth';
+        $this->path='/api/v3/depth';
         $this->data=$data;
         return $this->exec();
     }
@@ -79,7 +79,7 @@ class Market extends Request
      * */
     public function getHistoricalTrades(array $data=[]){
         $this->type='GET';
-        $this->path='/api/v1/historicalTrades';
+        $this->path='/api/v3/historicalTrades';
         $this->data=$data;
         return $this->exec();
     }
@@ -96,7 +96,7 @@ class Market extends Request
      * */
     public function getAggTrades(array $data=[]){
         $this->type='GET';
-        $this->path='/api/v1/aggTrades';
+        $this->path='/api/v3/aggTrades';
         $this->data=$data;
         return $this->exec();
     }
@@ -107,7 +107,7 @@ class Market extends Request
      * */
     public function getKlines(array $data=[]){
         $this->type='GET';
-        $this->path='/api/v1/klines';
+        $this->path='/api/v3/klines';
         $this->data=$data;
         return $this->exec();
     }
@@ -142,7 +142,7 @@ class Market extends Request
      * */
     public function get24hr(array $data=[]){
         $this->type='GET';
-        $this->path='/api/v1/ticker/24hr';
+        $this->path='/api/v3/ticker/24hr';
         $this->data=$data;
         return $this->exec();
     }
