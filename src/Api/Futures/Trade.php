@@ -20,31 +20,31 @@ class Trade extends Request
     }
 
     /*
-     *GET /fapi/v2/positionSide/dual (HMAC SHA256)
+     *GET /fapi/v1/positionSide/dual (HMAC SHA256)
      */
     public function getPositionSideDual(array $data=[]){
         $this->type='get';
-        $this->path='/fapi/v2/positionSide/dual';
+        $this->path='/fapi/v1/positionSide/dual';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /*
-     * GET /fapi/v2/multiAssetsMargin (HMAC SHA256)
+     * GET /fapi/v1/multiAssetsMargin (HMAC SHA256)
      */
     public function getMultiAssetsMargin(array $data=[]){
         $this->type='get';
-        $this->path='/fapi/v2/multiAssetsMargin';
+        $this->path='/fapi/v1/multiAssetsMargin';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /*
-     *POST /fapi/v2/order (HMAC SHA256)
+     *POST /fapi/v1/order (HMAC SHA256)
      */
     public function postOrder(array $data=[]){
         $this->type='POST';
-        $this->path='/fapi/v2/order';
+        $this->path='/fapi/v1/order';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
@@ -55,76 +55,76 @@ class Trade extends Request
             return false;
         } else {
             $this->type='POST';
-            $this->path='/fapi/v2/order';
+            $this->path='/fapi/v1/order';
             $this->data=array_merge($this->data,$data);
             return $this->getRequestParam($functionName);
         }
     }
 
     /*
-     *POST /fapi/v2/order/test (HMAC SHA256)
+     *POST /fapi/v1/order/test (HMAC SHA256)
      */
     public function postOrderTest(array $data=[]){
         $this->type='POST';
-        $this->path='/fapi/v2/order/test';
+        $this->path='/fapi/v1/order/test';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /*
-     *POST /fapi/v2/batchOrders (HMAC SHA256)
+     *POST /fapi/v1/batchOrders (HMAC SHA256)
      */
     public function postBatchOrders(array $data=[]){
         $this->type='POST';
-        $this->path='/fapi/v2/batchOrders';
+        $this->path='/fapi/v1/batchOrders';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /*
-     *DELETE /fapi/v2/order (HMAC SHA256)
+     *DELETE /fapi/v1/order (HMAC SHA256)
      */
     public function deleteOrder(array $data=[]){
         $this->type='DELETE';
-        $this->path='/fapi/v2/order';
+        $this->path='/fapi/v1/order';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /*
      * 撤销单一交易对的所有挂单 (TRADE)
-     * DELETE /fapi/v2/allOpenOrders (HMAC SHA256)
+     * DELETE /fapi/v1/allOpenOrders (HMAC SHA256)
      */
     public function deleteAllOpenOrders(array $data=[]){
         $this->type='DELETE';
-        $this->path='/fapi/v2/allOpenOrders';
+        $this->path='/fapi/v1/allOpenOrders';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /*
-     *DELETE /fapi/v2/batchOrders (HMAC SHA256)
+     *DELETE /fapi/v1/batchOrders (HMAC SHA256)
      */
     public function deleteBatchOrders(array $data=[]){
         $this->type='DELETE';
-        $this->path='/fapi/v2/batchOrders';
+        $this->path='/fapi/v1/batchOrders';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /*
-     *POST /fapi/v2/countdownCancelAll (HMAC SHA256)
+     *POST /fapi/v1/countdownCancelAll (HMAC SHA256)
      */
     public function postCountdownCancelAll(array $data=[]){
         $this->type='POST';
-        $this->path='/fapi/v2/countdownCancelAll';
+        $this->path='/fapi/v1/countdownCancelAll';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /*
      * 调整开仓杠杆
-     * POST /fapi/v2/leverage (HMAC SHA256)
+     * POST /fapi/v1/leverage (HMAC SHA256)
      * {
             "leverage": 21, // 杠杆倍数
             "maxNotionalValue": "1000000", // 当前杠杆倍数下允许的最大名义价值
@@ -133,37 +133,37 @@ class Trade extends Request
      */
     public function postLeverage(array $data=[]){
         $this->type='post';
-        $this->path='/fapi/v2/leverage';
+        $this->path='/fapi/v1/leverage';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /*
-     *POST /fapi/v2/marginType (HMAC SHA256)
+     *POST /fapi/v1/marginType (HMAC SHA256)
      */
     public function getMarginType(array $data=[]){
         $this->type='POST';
-        $this->path='/fapi/v2/marginType';
+        $this->path='/fapi/v1/marginType';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /*
-     *POST /fapi/v2/positionMargin (HMAC SHA256)
+     *POST /fapi/v1/positionMargin (HMAC SHA256)
      */
     public function postPositionMargin(array $data=[]){
         $this->type='POST';
-        $this->path='/fapi/v2/positionMargin';
+        $this->path='/fapi/v1/positionMargin';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /*
-     *GET /fapi/v2/positionMargin/history (HMAC SHA256)
+     *GET /fapi/v1/positionMargin/history (HMAC SHA256)
      */
     public function getPositionMarginHistory(array $data=[]){
         $this->type='get';
-        $this->path='/fapi/v2/positionMargin/history';
+        $this->path='/fapi/v1/positionMargin/history';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }

@@ -21,21 +21,21 @@ class User extends Request
     }
 
     /**
-     *POST /fapi/v2/positionSide/dual (HMAC SHA256)  USER_DATA
+     *POST /fapi/v1/positionSide/dual (HMAC SHA256)  USER_DATA
      * */
     public function postPositionSideDual(array $data=[]){
         $this->type='POST';
-        $this->path='/fapi/v2/positionSide/dual';
+        $this->path='/fapi/v1/positionSide/dual';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /**
-     *GET /fapi/v2/order (HMAC SHA256) USER_DATA
+     *GET /fapi/v1/order (HMAC SHA256) USER_DATA
      * */
     public function getOrder(array $data=[]){
         $this->type='GET';
-        $this->path='/fapi/v2/order';
+        $this->path='/fapi/v1/order';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
@@ -50,7 +50,7 @@ class User extends Request
      */
     public function getOpenOrder(array $data=[]){
         $this->type='GET';
-        $this->path='/fapi/v2/openOrder';
+        $this->path='/fapi/v1/openOrder';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
@@ -64,24 +64,24 @@ class User extends Request
      */
     public function getOpenOrders(array $data=[]){
         $this->type='GET';
-        $this->path='/fapi/v2/openOrders';
+        $this->path='/fapi/v1/openOrders';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /**
-     *GET /fapi/v2/allOrders (HMAC SHA256) USER_DATA
+     *GET /fapi/v1/allOrders (HMAC SHA256) USER_DATA
      * */
     public function getAllOrders(array $data=[]){
         $this->type='GET';
-        $this->path='/fapi/v2/allOrders';
+        $this->path='/fapi/v1/allOrders';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /**
      *
-     * GET /fapi/v2/balance (HMAC SHA256) USER_DATA
+     * GET /fapi/v1/balance (HMAC SHA256) USER_DATA
      * {
             "accountAlias": "SgsR",    // 账户唯一识别码
             "asset": "USDT",        // 资产
@@ -122,7 +122,8 @@ class User extends Request
     }
 
     /**
-     *GET /fapi/v2/positionRisk (HMAC SHA256) USER_DATA
+     * 用户持仓风险V2 (USER_DATA)
+     * GET /fapi/v2/positionRisk (HMAC SHA256) USER_DATA
      **/
     public function getPositionRisk(array $data=[]){
         $this->type='get';
@@ -132,11 +133,11 @@ class User extends Request
     }
 
     /**
-     *GET /fapi/v2/userTrades (HMAC SHA256) USER_DATA
+     *GET /fapi/v1/userTrades (HMAC SHA256) USER_DATA
      * */
     public function getUserTrades(array $data=[]){
         $this->type='GET';
-        $this->path='/fapi/v2/userTrades';
+        $this->path='/fapi/v1/userTrades';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
@@ -156,7 +157,7 @@ class User extends Request
      */
     public function getIncome(array $data=[]){
         $this->type='GET';
-        $this->path='/fapi/v2/income';
+        $this->path='/fapi/v1/income';
         $this->data=array_merge($this->data,$data);
         $data['timestamp']=time().'000';
         return $this->exec();
@@ -164,7 +165,7 @@ class User extends Request
 
     /**
      * 杠杆分层标准
-     * GET /fapi/v2/leverageBracket  USER_DATA
+     * GET /fapi/v1/leverageBracket  USER_DATA
      * {
             "symbol": "ETHUSDT",
             "brackets": [{
@@ -179,77 +180,77 @@ class User extends Request
      * */
     public function getLeverageBracket(array $data=[]){
         $this->type='GET';
-        $this->path='/fapi/v2/leverageBracket';
+        $this->path='/fapi/v1/leverageBracket';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /**
-     *GET /fapi/v2/forceOrders  USER_DATA
+     *GET /fapi/v1/forceOrders  USER_DATA
      * */
     public function getForceOrders(array $data=[]){
         $this->type='GET';
-        $this->path='/fapi/v2/forceOrders';
+        $this->path='/fapi/v1/forceOrders';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /**
-     *GET /fapi/v2/adlQuantile USER_DATA
+     *GET /fapi/v1/adlQuantile USER_DATA
      * */
     public function getAdlQuantile(array $data=[]){
         $this->type='GET';
-        $this->path='/fapi/v2/adlQuantile';
+        $this->path='/fapi/v1/adlQuantile';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /**
-     * GET /fapi/v2/commissionRate (HMAC SHA256)
+     * GET /fapi/v1/commissionRate (HMAC SHA256)
      * */
     public function getCommissionRate(array $data=[]){
         $this->type='GET';
-        $this->path='/fapi/v2/commissionRate';
+        $this->path='/fapi/v1/commissionRate';
         $this->data=array_merge($this->data,$data);
         return $this->exec();
     }
 
     /**
-     * POST /fapi/v2/listenKey
+     * POST /fapi/v1/listenKey
      */
     public function postListenKey(array $data=[]){
         $this->type='POST';
-        $this->path='/fapi/v2/listenKey';
+        $this->path='/fapi/v1/listenKey';
         $this->data=$data;
         return $this->exec();
     }
 
     /**
-     *PUT /fapi/v2/listenKey
+     *PUT /fapi/v1/listenKey
      */
     public function putListenKey(array $data=[]){
         $this->type='PUT';
-        $this->path='/fapi/v2/listenKey';
+        $this->path='/fapi/v1/listenKey';
         $this->data=$data;
         return $this->exec();
     }
 
     /**
-     *DELETE /fapi/v2/listenKey
+     *DELETE /fapi/v1/listenKey
      */
     public function deleteListenKey(array $data=[]){
         $this->type='DELETE';
-        $this->path='/fapi/v2/listenKey';
+        $this->path='/fapi/v1/listenKey';
         $this->data=$data;
         return $this->exec();
     }
 
     /**
-     *GET /fapi/v2/apiTradingStatus
+     *GET /fapi/v1/apiTradingStatus
      */
     public function getApiTradingStatus(array $data=[]){
         $this->type='get';
-        $this->path='/fapi/v2/apiTradingStatus';
+        $this->path='/fapi/v1/apiTradingStatus';
         $this->data=$data;
         return $this->exec();
     }
