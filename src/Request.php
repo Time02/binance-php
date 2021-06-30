@@ -150,7 +150,29 @@ class Request
         try {
             $responses = Promise\Utils::unwrap($promises);
         } catch (RequestException $e) {
-            echo "execAsync error";
+
+            $responses = FALSE;
+
+            if(method_exists($e->getResponse(),'getBody')){
+                $contents=$e->getResponse()->getBody()->getContents();
+
+                $temp=json_decode($contents,true);
+                if(!empty($temp)) {
+                    $query='';
+                    if(!empty($this->data)) $query=http_build_query($this->data,'', '&');
+
+                    $temp['_method']=$this->type;
+                    $temp['_url']=$this->host.$this->path.$query;
+                }else{
+                    $temp['_message']=$e->getMessage();
+                }
+            }else{
+                $temp['_message']=$e->getMessage();
+            }
+
+            $temp['_httpcode']=$e->getCode();
+
+            throw new Exception(json_encode($temp));
         }
         return $responses;
     }
